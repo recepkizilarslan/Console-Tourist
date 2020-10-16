@@ -5,10 +5,6 @@ const login=require('./src/authentication');
 
 (async()=>
 {
-    var cookies= await login("http://example.com");
-
-    console.log(cookies[1]);
-
-    tourist("http://example.com",cookies);
+    tourist("http://aspnet.testsparker.com/");
 
 })();

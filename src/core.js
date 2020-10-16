@@ -1,13 +1,8 @@
 "use strict";
 
 const puppeteer = require('puppeteer');
-const chalk = require('chalk');
-const colors = {
-    LOG: text => text,
-    ERR: chalk.red,
-    WAR: chalk.yellow,
-    INF: chalk.cyan
-}
+const logger=require('./logger');
+
 const queue = [];
 const crawled=[];
 var scope = null;
@@ -40,7 +35,7 @@ function queueManager(uri) {
     queue.push(uri);
 }
 
-module.exports=async function analyze(uri,cookies) {
+module.exports=async function analyze(uri,cookies=null) {
     if(!crawled.includes(uri))
     {
         crawled.push(uri);
@@ -54,34 +49,35 @@ module.exports=async function analyze(uri,cookies) {
             //open a page
             const page = await browser.newPage();
 
-            await page.setCookie(cookies);
+            if(cookies !=null)
+            {
+                await page.setCookie(cookies);
+            }
+
        
             //This scriptes provides to listen console. If any errors occured and appear on console it catch up them.
             
             page.on('console', message => {
                 //get msg type     
-                let type = message.type().substr(0, 3).toUpperCase()
-                //set color
-                let color = colors[type] || chalk.blue
+                let type = message.type().substr(0, 3).toUpperCase()     
                 //write message
-                console.log(color(`${type} ${message.text()}`))
+                logger(uri,type,message.text());
             })
             
             page.on('pageerror', message=>
             {
-                console.log(message.name);
-                console.log(message.stack);
+                   //get msg type                       //write message
+                   logger(uri,'ERR',message.text());
             });    
      
             page.on('requestfailed', request => 
             {
-                console.log(chalk.magenta(`${request.failure().errorText} ${request.url()}`))
+                   let msg=`${request.failure().errorText} ${request.url()}`;   
+                   //write message
+                   logger(uri,'ERR',msg);
             });
           
 
-            console.log("---------------------------------------");
-    
-            console.log("Url:" + uri)
             ///go to target
             await page.goto(uri);
 
@@ -103,7 +99,6 @@ module.exports=async function analyze(uri,cookies) {
             for (var i = 0; i < queue.length; i++) {
                 await analyze(queue[i],cookies);
             }
-            console.log(queue.length);
             
             //close page
             await page.close();
