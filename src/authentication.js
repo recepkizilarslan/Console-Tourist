@@ -15,9 +15,9 @@ module.exports = async function TryLogin(uri) {
 
             //------ START Login steps ------
             await page.goto(uri);
-            await page.type('#user', 'recep')
-            await page.type('#Password', '1234Aa')
-            await page.click('#login')
+            await page.type('#content > div.post > form > input[type=text]:nth-child(1)', 'admin')
+            await page.type('#content > div.post > form > input[type=password]:nth-child(3)', 'admin123456')
+            await page.click('#content > div.post > form > input[type=submit]:nth-child(7)')
             await page.waitForNavigation();
             //------ END Login steps ------
             

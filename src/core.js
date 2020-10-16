@@ -2,38 +2,8 @@
 
 const puppeteer = require('puppeteer');
 const logger=require('./logger');
+const {crawled,queue,queueManager,scope}=require('./queue');
 
-const queue = [];
-const crawled=[];
-var scope = null;
-
-function queueManager(uri) {
-    if (uri == undefined)
-    {
-        return;
-    }
-    //if request list is null
-    if (queue.length == 0)
-    {
-        scope = new URL(uri).hostname;
-        queue.push(uri);
-
-        return;
-    }
-    if (queue.includes(uri))
-    {
-        return;
-    }
-
-    let schema = new URL(uri);
-
-    if (schema.hostname != scope)
-    {
-        return;       
-    }
-
-    queue.push(uri);
-}
 
 module.exports=async function analyze(uri,cookies=null) {
     if(!crawled.includes(uri))

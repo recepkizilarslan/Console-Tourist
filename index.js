@@ -5,6 +5,6 @@ const login=require('./src/authentication');
 
 (async()=>
 {
-    tourist("http://aspnet.testsparker.com/");
+    tourist("http://test.vulnweb.com/");
 
 })();
