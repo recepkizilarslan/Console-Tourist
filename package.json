@@ -1,0 +1,16 @@
+{
+  "name": "console-tourist",
+  "version": "1.0.0",
+  "description": "This script provides to analyze console error on your website.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "RecepKizilarslan",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "install": "^0.13.0",
+    "puppeteer": "^5.3.1"
+  }
+}
