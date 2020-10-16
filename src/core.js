@@ -32,7 +32,7 @@ function queueManager(uri) {
 
     let schema = new URL(uri);
 
-    if (schema.hostname !== scope)
+    if (schema.hostname != scope)
     {
         return;       
     }
@@ -40,7 +40,7 @@ function queueManager(uri) {
     queue.push(uri);
 }
 
-module.exports=async function analyze(uri) {
+module.exports=async function analyze(uri,cookies) {
     if(!crawled.includes(uri))
     {
         crawled.push(uri);
@@ -53,7 +53,9 @@ module.exports=async function analyze(uri) {
     
             //open a page
             const page = await browser.newPage();
-            
+
+            await page.setCookie(cookies);
+       
             //This scriptes provides to listen console. If any errors occured and appear on console it catch up them.
             
             page.on('console', message => {
@@ -69,14 +71,10 @@ module.exports=async function analyze(uri) {
             {
                 console.log(message.name);
                 console.log(message.stack);
-            });
-            
+            });    
      
             page.on('requestfailed', request => 
             {
-                console.log(request.url)
-                request.method
-                request.resourceType
                 console.log(chalk.magenta(`${request.failure().errorText} ${request.url()}`))
             });
           
@@ -103,7 +101,7 @@ module.exports=async function analyze(uri) {
     
             //analyze queue
             for (var i = 0; i < queue.length; i++) {
-                await analyze(queue[i]);
+                await analyze(queue[i],cookies);
             }
             console.log(queue.length);
             
