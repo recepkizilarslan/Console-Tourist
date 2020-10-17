@@ -8,13 +8,13 @@ Tourist is a simple tool that allows you to collect console messages, errors, un
 - Then it save the messages.
 - It support authentication.
 
-####Update package
+#### Update package
 
 `$ npm install`
 
-###How can ı use
+### How can ı use
 
-#####Without Authentication.
+##### Without Authentication.
 index.js
 ```javascript
 const tourist=require('./src/core')
@@ -26,7 +26,7 @@ const tourist=require('./src/core')
 
 
 
-#####With Authentication.
+##### With Authentication.
 authentication.js
 
 
@@ -57,12 +57,7 @@ const auth=require('./src/authentication');
 
 `$ node index`
 
-###Results
-
-Image:
-
-                
-----
+### Results
 
 result.log (ex)
 ```json
@@ -84,15 +79,5 @@ result.log (ex)
 {"message":"https://stackoverflow.com/talent : Error with Feature-Policy header: Unrecognized feature: 'speaker'.","level":"warn"}
 
 ```
-Image
-
-
-
-
-
-
-
-
-
-
-tion.
+Console:
+![](https://pasteboard.co/Jw30IlU.png)
