@@ -22,9 +22,7 @@ module.exports=async function analyze(uri,cookies=null) {
             if(cookies !=null)
             {
                 await page.setCookie(cookies);
-            }
-
-       
+            }  
             //This scriptes provides to listen console. If any errors occured and appear on console it catch up them.
             
             page.on('console', message => {

@@ -1,9 +1,10 @@
 const puppeteer = require('puppeteer');
 
 module.exports = async function TryLogin(uri) {
+    
         try {
             //open a instance
-            const browser = await puppeteer.launch({headless :false});
+            const browser = await puppeteer.launch();
             //open a page
             const page = await browser.newPage();
             
@@ -25,15 +26,16 @@ module.exports = async function TryLogin(uri) {
             //return cookies
             var cookie=await page.cookies();
 
-            //close page
-              page.close();
-
             //close browser
-             browser.close();
+             await browser.close();
 
             return cookie;
 
-        } catch (e) {
+        } 
+        
+        catch (e) {
             throw e;
         }
+
 }
+

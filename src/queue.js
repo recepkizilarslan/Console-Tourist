@@ -2,10 +2,9 @@
 
 //for new links
 const queue = [];
+const scope=[];
 //for crawled links
 const crawled=[];
-//main domain
-var scope = null;
 
 function queueManager(uri) {
     //if url is undefined
@@ -16,7 +15,7 @@ function queueManager(uri) {
     //if queue list is null uri will be base url
     if (queue.length == 0) {
         //get hostname for analyzing scope
-        scope = new URL(uri).hostname;
+        scope[0] = new URL(uri).hostname;
         //add queue
         queue.push(uri);
         //return
@@ -30,7 +29,7 @@ function queueManager(uri) {
     //create uri schema
     let schema = new URL(uri);
     //if hostname is not equal to scope
-    if (schema.hostname != scope) {
+    if (schema.hostname != scope[0]) {
         //return 
         return;
     }
@@ -41,7 +40,7 @@ function queueManager(uri) {
 //export all modules
 module.exports = {
     queue,
-    crawled,
     scope,
+    crawled,
     queueManager
 }
