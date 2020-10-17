@@ -12,7 +12,7 @@ Tourist is a simple tool that allows you to collect console messages, errors, un
 
 `$ npm install`
 
-### How can ı use
+### How to you use?
 
 ##### Without Authentication.
 index.js
