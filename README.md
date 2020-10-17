@@ -79,5 +79,6 @@ result.log (ex)
 {"message":"https://stackoverflow.com/talent : Error with Feature-Policy header: Unrecognized feature: 'speaker'.","level":"warn"}
 
 ```
-Console:
-![](https://pasteboard.co/Jw30IlU.png)
+Console(ex):
+
+![result](https://www.linkpicture.com/q/capture.png "result")
