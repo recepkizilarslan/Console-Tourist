@@ -1,7 +1,7 @@
-const tourist=require('./src/core')
-const login=require('./src/authentication');
+const tour=require('./src/core')
+const auth=require('./src/authentication');
 
 module.exports={
-    tourist,
-    login
+    tour,
+    auth
 };

@@ -1,6 +1,6 @@
 {
   "name": "console-tourist",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "This script provides to analyze console error on your website.",
   "main": "index.js",
   "scripts": {
