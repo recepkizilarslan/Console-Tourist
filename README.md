@@ -17,9 +17,9 @@ Tourist is a simple tool that allows you to collect console messages, errors, un
 ##### Without Authentication.
 index.js
 ```javascript
-const tourist=require('./src/core')
+const {tour,auth } = require("console-tourist");
 (async()=>{
-    tourist("https://stackoverflow.com/");
+    tour("https://stackoverflow.com/");
 })();
 ```
 `$ node index`
@@ -43,14 +43,13 @@ await page.waitForNavigation();
 ```
 index.js
 ```javascript
-const tourist=require('./src/core')
-const auth=require('./src/authentication');
+const {tour,auth } = require("console-tourist");
 
 (async()=>{
 //add yout login url
    var cookies=auth('https://stackoverflow.com/users/login');
    //run tourist with cookies
-	tourist("https://stackoverflow.com/",cookies);
+	tour("https://stackoverflow.com/",cookies);
 })();
 ```
 
