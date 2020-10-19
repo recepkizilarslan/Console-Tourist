@@ -3,10 +3,9 @@ Console Tourist is a simple tool that allows you to collect console messages, er
 
 ### What does Tourist do?
 
-- Navigates all pages on your website.
-- It get all error messages on the console. 
-- Then it save the messages.
-- It support authentication.
+- Crawls all pages on your website.
+- Gets all error messages on the console. 
+- Then logs the messages.
 
 #### How to Install
 
@@ -31,7 +30,7 @@ authentication.js
 
 
 ```javascript
-/* Set setup your login steps */
+/* Set your login steps */
 
  //------ START Login steps ------
 await page.type('#email', 'username')
@@ -46,7 +45,7 @@ index.js
 const {tour,auth } = require("console-tourist");
 
 (async()=>{
-//add yout login url
+//set your login url
    var cookies=auth('https://stackoverflow.com/users/login');
    //run tourist with cookies
 	tour("https://stackoverflow.com/",cookies);
