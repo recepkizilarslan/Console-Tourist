@@ -1,5 +1,5 @@
-# Tourist
-Tourist is a simple tool that allows you to collect console messages, errors, unsuccessful requests of all your pages after the DOM loading with authentication support.
+# Console Tourist
+Console Tourist is a simple tool that allows you to collect console messages, errors, unsuccessful requests of all your pages after the DOM loading with authentication support.
 
 ### What does Tourist do?
 
@@ -8,9 +8,9 @@ Tourist is a simple tool that allows you to collect console messages, errors, un
 - Then it save the messages.
 - It support authentication.
 
-#### Update package
+#### How to Install
 
-`$ npm install`
+`$ npm install console-tourist`
 
 ### How to you use?
 
