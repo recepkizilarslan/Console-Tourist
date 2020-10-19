@@ -6,6 +6,16 @@
   "scripts": {
     "test": "node_modules/.bin/mocha"
   },
+  "keywords":[
+    "crawler",
+    "crawling",
+    "crawling-tool",
+    "console-log",
+    "error-monitoring",
+    "error-reporting",
+    "qa-tools",
+    "qa-automation"
+  ],
   "author": "RecepKizilarslan",
   "license": "MIT",
   "dependencies": {
