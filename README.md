@@ -76,7 +76,3 @@ result.log (ex)
 {"message":"https://stackoverflow.com/jobs?so_source=ProductsMenu&so_medium=StackOverflow : Error with Feature-Policy header: Unrecognized feature: 'speaker'.","level":"warn"}
 {"message":"https://stackoverflow.com/talent : Error with Feature-Policy header: Unrecognized feature: 'speaker'.","level":"warn"}
 
-```
-Console(ex):
-
-![result](https://www.linkpicture.com/q/capture.png "result")
